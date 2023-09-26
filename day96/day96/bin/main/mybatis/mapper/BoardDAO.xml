@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+   <mapper namespace="com.tan.app.board.InterfaceBoardDAO">
+	   <select id="selectAll" resultType="com.tan.app.board.BoardDTO">
+		   SELECT BOARDID, MEMBERID, CONTENT FROM BOARD
+	   </select>
+	   <select id="selectOne" resultType="com.tan.app.board.BoardDTO">
+		   SELECT BOARDID, MEMBERID, CONTENT FROM BOARD WHERE BOARDID = #{param1}
+	   </select>
+	   <insert id="insert">
+		   INSERT INTO BOARD (MEMBERID, CONTENT) VALUES(#{memberId},#{content})
+	   </insert>
+	   <update id="update">
+		   UPDATE BOARD SET CONTENT = #{content} WHERE BOARDID = #{boardId}
+	   </update>
+	   <delete id="delete">
+		   DELETE FROM BOARD WHERE BOARDID = #{param1}
+	   </delete>
+   </mapper>
